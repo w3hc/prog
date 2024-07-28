@@ -1,3 +1,4 @@
+// src/supabase.service.ts
 import { Injectable } from '@nestjs/common';
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
@@ -40,5 +41,16 @@ export class SupabaseService {
     }
 
     return { data, error };
+  }
+
+  async addPage(page: { url: string; content: string }) {
+    const { data, error } = await this.client.from('pages').insert([page]);
+
+    if (error) {
+      console.error('Error adding page:', error);
+      throw error;
+    }
+
+    return data;
   }
 }

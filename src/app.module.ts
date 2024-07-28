@@ -1,19 +1,24 @@
+// src/app.module.ts
 import { Module } from '@nestjs/common';
-import { SubscriptionController } from './subscription.controller';
-import { SubscriptionService } from './subscription.service';
+import { HttpModule } from '@nestjs/axios';
 import { SupabaseService } from './supabase.service';
-import { FirebaseService } from './firebase.service';
-import { NotificationController } from './notification.controller';
+import { SubscriptionService } from './subscription.service';
 import { NotificationService } from './notification.service';
+import { PageService } from './page.service';
+import { SubscriptionController } from './subscription.controller';
+import { NotificationController } from './notification.controller';
+import { PageController } from './page.controller';
+import { FirebaseService } from './firebase.service';
 
 @Module({
-  imports: [],
-  controllers: [SubscriptionController, NotificationController],
+  imports: [HttpModule],
+  controllers: [SubscriptionController, NotificationController, PageController],
   providers: [
-    SubscriptionService,
     SupabaseService,
-    FirebaseService,
+    SubscriptionService,
     NotificationService,
+    PageService,
+    FirebaseService, // Add FirebaseService here
   ],
 })
 export class AppModule {}
