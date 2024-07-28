@@ -51,6 +51,6 @@ export class SupabaseService {
       throw error;
     }
 
-    return data;
+    return { data, content: page.content };
   }
 }
