@@ -9,6 +9,7 @@ import { FirebaseService } from './firebase.service';
 import { SubscriptionService } from './subscription.service';
 import { SubscriptionController } from './subscription.controller';
 import { NotificationController } from './notification.controller';
+import { EmailService } from './email.service';
 
 @Module({
   imports: [HttpModule],
@@ -19,6 +20,7 @@ import { NotificationController } from './notification.controller';
     NotificationService,
     FirebaseService,
     SubscriptionService,
+    EmailService,
   ],
 })
 export class AppModule {}
