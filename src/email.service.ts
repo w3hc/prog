@@ -48,7 +48,7 @@ export class EmailService {
     this.logger.log(`Using domain: ${process.env.MAILGUN_DOMAIN}`);
 
     const data = {
-      from: `Excited User <mailgun@${process.env.MAILGUN_DOMAIN}>`,
+      from: `Julien <mailgun@${process.env.MAILGUN_DOMAIN}>`,
       to: [to],
       subject,
       text,
